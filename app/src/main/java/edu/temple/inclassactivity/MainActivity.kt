@@ -1,13 +1,16 @@
 package edu.temple.inclassactivity
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.fragment.app.Fragment
 
 class MainActivity : AppCompatActivity() {
 
     //lateinit var someVar : Array<Int>
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,9 +25,10 @@ class MainActivity : AppCompatActivity() {
         val fragmentTemp : Fragment = ImageDisplayFragment.newInstance(imageArray)
 
 
-        (supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as ImageDisplayFragment).setImage(imageArray)
         //this as ImageDisplayFragment
-
+        findViewById<Button>(R.id.displayButton).setOnClickListener() {
+            (supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as ImageDisplayFragment).setImage(imageArray)
+        }
         /*
         supportFragmentManager
             .beginTransaction()

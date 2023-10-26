@@ -54,8 +54,8 @@ class ImageDisplayFragment : Fragment() {
         images = temp
 
         view?.run{
-            (view as RecyclerView).adapter = CustomRecyclerAdapter(images)
-            (view as RecyclerView).adapter?.notifyDataSetChanged()}
+            (view as RecyclerView).adapter = CustomRecyclerAdapter(images) }
+            //(view as RecyclerView).adapter?.notifyDataSetChanged()
 
     }
     companion object {
