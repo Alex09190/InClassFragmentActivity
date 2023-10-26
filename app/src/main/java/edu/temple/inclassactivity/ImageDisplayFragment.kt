@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.res.TypedArrayUtils
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -43,12 +44,20 @@ class ImageDisplayFragment : Fragment() {
         // as such the view argument passed to onViewCreated() is the RecyclerView
         with (view as RecyclerView) {
 
+
+            ViewModelProvider(requireActivity())[ImagesViewModel::class.java]
+                .getImages().observe(viewLifecycleOwner){
+                    adapter = CustomRecyclerAdapter(it)
+                }
+            /*
             if(::images.isInitialized) {
                 adapter = CustomRecyclerAdapter(images)
             }
+             */
+                layoutManager = GridLayoutManager(requireContext(), 2)
 
-            layoutManager = GridLayoutManager(requireContext(), 2)
         }
+
     }
     fun setImage (temp : IntArray) {
         images = temp
