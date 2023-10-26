@@ -21,6 +21,10 @@ class MainActivity : AppCompatActivity() {
 
         val fragmentTemp : Fragment = ImageDisplayFragment.newInstance(imageArray)
 
+
+        (supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as ImageDisplayFragment).setImage(imageArray)
+        //this as ImageDisplayFragment
+
         /*
         supportFragmentManager
             .beginTransaction()

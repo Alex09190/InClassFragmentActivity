@@ -53,6 +53,8 @@ class ImageDisplayFragment : Fragment() {
     fun setImage (temp : IntArray) {
         images = temp
         (view as RecyclerView).adapter = CustomRecyclerAdapter(images)
+        (view as RecyclerView).adapter?.notifyDataSetChanged()
+
     }
     companion object {
         fun newInstance(images: IntArray) =
