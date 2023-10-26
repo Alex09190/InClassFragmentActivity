@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         val fragmentTemp : Fragment = ImageDisplayFragment.newInstance(imageArray)
 
 
+
+
         //this as ImageDisplayFragment
         findViewById<Button>(R.id.displayButton).setOnClickListener() {
             (supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as ImageDisplayFragment).setImage(imageArray)
